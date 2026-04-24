@@ -1,0 +1,23 @@
+# pip install -r requirements.txt
+# jupyterlab
+
+pandas
+matplotlib
+#cartopy
+tqdm
+plotly
+#hdbscan
+#nbformat
+#imblearn
+#shap
+numpy #<=2.3
+seaborn
+#scipy
+#boruta
+#pykan
+torch
+#pypickle
+xgboost
+#catboost
+#lightgbm 
+scikit-learn #==1.6
