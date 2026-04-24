@@ -37,3 +37,4 @@ figures/
 assets/
 model/
 catboost_info/
+cache_features/

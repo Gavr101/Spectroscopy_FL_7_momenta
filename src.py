@@ -827,3 +827,28 @@ class ZernikeTransformer2D(BaseEstimator, TransformerMixin):
 
         pd_table = pd.DataFrame(X, columns=columns)
         return pd_table
+    
+    
+def import_df(filename, source_path = 'CD_HM_dataset/'):
+    '''
+    Imports data from xlsx to df.
+    
+    filename: name of the file.
+    source_path: path to the file.
+    '''
+
+    df = pd.read_csv(source_path + filename) # Reading xlsx -> df 
+    #df = df.drop(['Unnamed: 552']) # Delete last raw
+    
+    df = df.astype(float)
+    #df.columns = df.columns.astype('int')
+    
+    # Filtering
+    df[df<0] = np.nan #np.nan
+    
+    df.index = df[df.columns[0]]
+    df.index = df.index.astype('int')
+    df = df.drop('EX Wavelength/EM Wavelength', axis=1) # Delete last raw
+    df.columns = df.columns.astype('int')
+    
+    return df
