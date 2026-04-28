@@ -1,0 +1,44 @@
+Baseline_1_0.json ; Experiment_1_0.json - Первый запуск, неправильно подобраны 
+N_ITER_NO_CHANGE = 10
+MAX_EPOCHS = 500
+
+-----
+
+Experiment_1_1.json - Исправлены
+N_ITER_NO_CHANGE = 100
+MAX_EPOCHS = 5000
+
+-----
+
+Experiment_1_2.json - MLP не полностью посчитаны
+
+Исправлен mlp, наподобии архитектуры Артема из FL_7_ions статьи
+
+Было:
+    elif name == "MLP":
+        return MLPRegressor(
+            hidden_layer_sizes=(128, 64),
+            max_iter=MAX_EPOCHS,
+            early_stopping=True,
+            validation_fraction=VAL_RATIO,
+            n_iter_no_change=N_ITER_NO_CHANGE,
+            tol=TOL,
+            random_state=42
+        )
+
+Стало:
+    elif name == "MLP":
+        return MLPRegressor(
+            hidden_layer_sizes=(64, 32, 16),
+            activation='logistic',
+            max_iter=MAX_EPOCHS,
+            early_stopping=True,
+            validation_fraction=VAL_RATIO,
+            n_iter_no_change=N_ITER_NO_CHANGE,
+            tol=TOL,
+            random_state=42
+        )
+
+-----
+
+Baseline_1_3.json ; Experiment_1_3.json - Улучшена CNN (добавлена cuda) и MLP (переписана в torch)

@@ -1,4 +1,5 @@
 import numpy as np
+import math
 import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 
@@ -686,10 +687,10 @@ class ZernikeTransformer2D(BaseEstimator, TransformerMixin):
             return np.ones_like(r)
         R = np.zeros_like(r)
         for k in range((n - abs(m)) // 2 + 1):
-            binom1 = np.math.factorial(n - k)
-            binom2 = np.math.factorial(k)
-            binom3 = np.math.factorial((n + abs(m)) // 2 - k)
-            binom4 = np.math.factorial((n - abs(m)) // 2 - k)
+            binom1 = math.factorial(n - k)
+            binom2 = math.factorial(k)
+            binom3 = math.factorial((n + abs(m)) // 2 - k)
+            binom4 = math.factorial((n - abs(m)) // 2 - k)
             R += ((-1) ** k * binom1 / (binom2 * binom3 * binom4)) * r ** (n - 2 * k)
         return R
 
