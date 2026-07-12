@@ -42,3 +42,10 @@ Experiment_1_2.json - MLP не полностью посчитаны
 -----
 
 Baseline_1_3.json ; Experiment_1_3.json - Улучшена CNN (добавлена cuda) и MLP (переписана в torch)
+
+-----
+
+Baseline_2_0.json - CNN с 2-мя сверточными слоями; 
+Experiment_2_0.json - Фиксированный центр моментов Цернике и максимальный радиус.
+
+-----
